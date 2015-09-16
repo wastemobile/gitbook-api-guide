@@ -1,30 +1,30 @@
-# Books
+# 書籍
 
-#### List your books
+#### 書目清單
 
-List books for the authenticated user. This includes books from organizations the user can access.
+對授權用戶列出書目清單，這也包含用戶從所屬出版單位可獲得的授權書目。
 
 ```
 GET /books/
 ```
 
-You can include only books created by the authenticated user:
+你可以指定只包含透定用戶建立的書籍：
 
 ```
 GET /books/author
 ```
 
-List all public books
+列出所有開放書籍
 
-This provides a dump of every public repository, in the order that they were created.
+這會從所有開放倉儲中讀取書目，根據建立時間排序。
 
 ```
 GET /books/all
 ```
 
-#### Get details about a book
+#### 取得一本書的詳細資料
 
-Details not included in list of books are included when querying a specific book:
+書目中未列出的單書詳細資訊，可用下面方式獲得：
 
 ```
 GET /book/:username/:id

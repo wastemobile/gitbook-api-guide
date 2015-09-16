@@ -1,10 +1,10 @@
 # HTTP API
 
-This describes the resources that make up the official GitBook API. If you have any problems or requests please [contact support](https://www.gitbook.com/contact).
+這裏是存取 GitBook API 的基礎事項，有任何問題請聯絡 [支援頻道](https://www.gitbook.com/contact)。
 
 #### Schema
 
-All API access is over HTTPS, and accessed through `https://api.gitbook.com/` . All data is sent and received as **JSON**.
+所有 API 均使用 HTTPS，經由這個 `https://api.gitbook.com/` 正式網址。所有資料進出格式都是 **JSON**。
 
 ```raw
 $ curl -i https://api.gitbook.com/author/gitbookio
@@ -24,9 +24,9 @@ Via: 1.1 vegur
 
 #### Authentication
 
-There is currently only one way to authenticate through GitBook API: **Basic Auth**.
+目前只有一種認證模式： **Basic Auth** 。
 
-Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places. This is to prevent the accidental leakage of private books to unauthorized users.
+嘗試存取需要認證的資源，某些地方會收到 `404 Not Found` 訊息，而不是 `403 Forbidden`。這是為了避免讓未獲授權的讀者接觸到私密書籍資源。
 
 ```
 $ curl -u "username:token" https://api.gitbook.com/books/
@@ -34,7 +34,7 @@ $ curl -u "username:token" https://api.gitbook.com/books/
 
 #### Error Format
 
-Error are returned as JSON: 
+錯誤訊息也以 JSON 格式回覆： 
 
 ```js
 {
@@ -45,11 +45,11 @@ Error are returned as JSON:
 
 #### Pagination
 
-Requests that return multiple items will be paginated to 30 items by default.
+如果回覆是個許多項目的列表，預設會以每 30 個項目進行分頁。
 
-You can specify further pages with the `?skip` parameter. For some resources, you can also set a custom page size up to 100 with the `?limit`.
+你可以使用 `?skip` 參數索取特定的頁數。對某些資源，也可以使用 `?limit` 參數限制上線數量為 100。
 
-Paginated results will be returned with information about the page context:
+分頁結果會以下面的格式提供使用情境：
 
 ```js
 {

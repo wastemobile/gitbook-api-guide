@@ -1,27 +1,27 @@
-# Hooks
+# 使用掛勾 Hooks
 
-Hooks is a method of augmenting or altering the behavior of the process, with custom callbacks.
+掛勾（Hooks）是添加功能，或改變處理程序行為的一種方法，使用自訂的回呼。
 
-### List of hooks
+### 掛勾列表
 
-### Relative to the global pipeline
+### 相對於全域流程
 
-> It is recommended using [blocks](./blocks.md) to extend page parsing.
-
-| Name | Description | Arguments |
-| ---- | ----------- | --------- |
-| `init` | Called after parsing the book, before generating output and pages. | None |
-| `finish:before` | Called after generating the pages, before copying assets, cover, ... | None |
-| `finish` | Called after everything else. | None |
-
-### Relative to the page pipeline
+> 頁面解析相關的額外功能，建議使用 [blocks](./blocks.md) 。
 
 | Name | Description | Arguments |
 | ---- | ----------- | --------- |
-| `page:before` | Called before running the templating engine on the page | Page Object |
-| `page` | Called before outputting and indexing the page. | Page Object |
+| `init` | 在解析完書籍內容後呼叫，在實際轉製網頁與書籍之前執行。 | None |
+| `finish:before` | 在轉製頁面完成後呼叫，尚未複製素材、封面等... | None |
+| `finish` | 所有轉製程序完成後呼叫。 | None |
 
-##### Page Object
+### 相對於頁面流程
+
+| Name | Description | Arguments |
+| ---- | ----------- | --------- |
+| `page:before` | 在對頁面套用模板引擎之前呼叫 | Page Object |
+| `page` | 在輸出與建立頁面索引前呼叫 | Page Object |
+
+##### 頁面物件
 
 ```js
 {
@@ -52,7 +52,7 @@ Hooks is a method of augmenting or altering the behavior of the process, with cu
 }
 ```
 
-##### Example to add a title
+##### 添加標題的範例
 
 ```js
 {
@@ -63,7 +63,7 @@ Hooks is a method of augmenting or altering the behavior of the process, with cu
 }
 ```
 
-##### Example to replace some html
+##### 替換某些 html 內容的範例
 
 ```js
 {
@@ -76,7 +76,7 @@ Hooks is a method of augmenting or altering the behavior of the process, with cu
 ```
 
 
-### Asynchronous Operations
+### 非同步操作
 
 Hooks callbacks can be asynchronous and return a promise.
 

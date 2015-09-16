@@ -1,10 +1,10 @@
-# Context and APIs
+# 情境與 APIs
 
-GitBooks provides different APIs and contexts to plugins. These APIs can vary according to the GitBook version being used, your plugin should specify the `engines.gitbook` field in `package.json` accordingly.
+GitBooks 對外掛提供了不同的 APIs 與使用情境，這些 APIs 往往都依賴 GitBook 的特定版本，因此你的外掛應該要在 `package.json` 中指定 `engines.gitbook`。
 
-#### Context for Blocks and Filters
+#### 內容區塊與篩選器的使用情境
 
-Blocks and filters have access to the same context, this context is bind to the template engine execution:
+內容區塊（Blocks）與篩選器（filters）對相同的情境內容具有存取權，這個情境被綁定在模板引擎執行期間：
 
 ```js
 {
@@ -22,11 +22,11 @@ Blocks and filters have access to the same context, this context is bind to the 
 }
 ```
 
-#### Context for Hooks
+#### 掛勾的使用情境
 
-Hooks only have access to the `<Book>` instance.
+掛勾（Hooks）只能存取這個 `<Book>` 實例（instance）。
 
-#### Book instance
+#### 書籍實例
 
 The `Book` class is the central point of GitBook, it centralize all access methods. This class is defined in [book.js](https://github.com/GitbookIO/gitbook/blob/master/lib/book.js).
 

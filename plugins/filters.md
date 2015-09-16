@@ -1,6 +1,6 @@
-# Extend Filters
+# 使用篩選器 Filters
 
-Filters are essentially functions that can be applied to variables. They are called with a pipe operator (`|`) and can take arguments.
+篩選器（Filters）是能被套用到變數上的基礎功能，使用一個管道符號（`|`）呼叫，還能加上一些參數。
 
 ```
 {{ foo | title }}
@@ -8,12 +8,11 @@ Filters are essentially functions that can be applied to variables. They are cal
 {{ foo | replace("foo", "bar") | capitalize }}
 ```
 
-### Defining a new filter
+### 定義一個新的篩選器
 
-Plugins can extend filters by defining custom functions in their entry point under the `filters` scope.
+外掛可以從程式起點的 `filters` 領域，定義一些自訂函數，藉以擴張它的功能。
 
-A filter function takes as first argument the content to filter, and should return the new content.
-Refer to [Context and APIs](./api.md) to learn more about `this` and GitBook API.
+一個篩選功能會拿篩選的內容當第一個參數，應該回傳處理後的新內容。請參照 [情境與 APIs](./api.md) 一章的內容，學習 `this` 與 GitBook API 的使用方法。
 
 ```js
 module.exports = {
@@ -25,21 +24,21 @@ module.exports = {
 };
 ```
 
-The filter `hello` can then be used in the book:
+經由上面的定義，就可以在書中使用 `hello` 篩選器了：
 
 ```
 {{ "Aaron"|hello }}, how are you?
 ```
 
-### Handling block arguments
+### 處理內容區塊參數
 
-Arguments can be passed to filters:
+內容區塊的參數可以送給篩選器處理：
 
 ```
 Hello {{ "Samy"|fullName("Pesse", man=true}} }}
 ```
 
-Arguments are passed to the function, named-arguments are passed as a last argument (object).
+參數被送進自訂函數中處理，篩選器自帶的命名參數要以最後一個物件送進去。
 
 ```js
 module.exports = {

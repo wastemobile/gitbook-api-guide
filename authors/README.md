@@ -1,8 +1,8 @@
-# Authors
+# 作者資訊
 
-#### Get details about an author
+#### 取得某位作者的詳細資訊
 
-AN API method is available to get information about an user or an organization:
+使用下面的方法，取得一位作者或一個出版單位的詳細資訊：
 
 ```
 GET /author/:username
